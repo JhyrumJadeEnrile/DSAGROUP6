@@ -1,0 +1,462 @@
+:root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --accent: #38bdf8;
+    --accent-hover: #7dd3fc;
+    --text: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border: #334155;
+    --nav-height: 70px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding-top: var(--nav-height);
+}
+
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-bottom: 2px solid var(--accent);
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.nav-brand h2 {
+    color: var(--accent);
+    font-size: 1.5rem;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1;
+    padding: 0 20px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    color: var(--accent-hover);
+    background: rgba(56, 189, 248, 0.1);
+    border-color: var(--accent);
+}
+
+.nav-link.active {
+    color: var(--text);
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+}
+
+.nav-icon {
+    font-size: 1.2rem;
+}
+
+.nav-text {
+    font-size: 0.9rem;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    gap: 4px;
+}
+
+.hamburger {
+    width: 25px;
+    height: 3px;
+    background: var(--accent);
+    transition: 0.3s;
+    display: block;
+}
+
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: var(--card);
+    border-bottom: 2px solid var(--accent);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 999;
+}
+
+.mobile-nav.active {
+    max-height: 500px;
+    display: block;
+}
+
+.mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s;
+    font-size: 1.1rem;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent);
+    padding-left: 30px;
+}
+
+.main-content {
+    min-height: calc(100vh - var(--nav-height) - 80px);
+    padding: 20px;
+}
+
+.content-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.video-header {
+    text-align: center;
+    margin: 30px 0;
+    animation: fadeInDown 0.6s ease;
+}
+
+.video-title {
+    font-size: 3rem;
+    color: var(--accent);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.title-icon {
+    font-size: 3.5rem;
+}
+
+.video-description {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.video-section {
+    margin: 40px 0;
+    animation: fadeInUp 0.6s ease;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+    border: 3px solid var(--border);
+    background: #000;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.control-panel {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    padding: 14px 24px;
+    background: var(--card);
+    color: var(--text);
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.control-btn:hover {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3);
+}
+
+.control-btn.primary {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+}
+
+.control-btn.primary:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+}
+
+.control-btn:active {
+    transform: translateY(0);
+}
+
+.info-section {
+    margin: 50px auto;
+    max-width: 1000px;
+    animation: fadeIn 0.8s ease;
+}
+
+.info-card {
+    background: var(--card);
+    padding: 35px;
+    border-radius: 16px;
+    border: 2px solid var(--border);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.info-card h3 {
+    color: var(--accent);
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.info-card > p {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.keyboard-shortcuts {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 2px solid var(--border);
+}
+
+.keyboard-shortcuts h4 {
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.shortcuts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.shortcut-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(56, 189, 248, 0.05);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+kbd {
+    background: var(--bg);
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 2px solid var(--accent);
+    font-family: monospace;
+    font-weight: bold;
+    color: var(--accent);
+    min-width: 50px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.shortcut-item span {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.footer {
+    text-align: center;
+    padding: 25px 20px;
+    color: var(--text-secondary);
+    border-top: 2px solid var(--border);
+    margin-top: 60px;
+    background: var(--card);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 1200px) {
+    .nav-links {
+        gap: 6px;
+    }
+    
+    .nav-link {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .nav-text {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 968px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .video-title {
+        font-size: 2.2rem;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .title-icon {
+        font-size: 2.5rem;
+    }
+    
+    .video-description {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --nav-height: 60px;
+    }
+    
+    .nav-brand h2 {
+        font-size: 1.2rem;
+    }
+    
+    .video-title {
+        font-size: 1.8rem;
+    }
+    
+    .video-description {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+    
+    .control-panel {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+    
+    .control-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .info-card {
+        padding: 25px 20px;
+    }
+    
+    .shortcuts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-title {
+        font-size: 1.5rem;
+    }
+    
+    .title-icon {
+        font-size: 2rem;
+    }
+    
+    .info-card h3 {
+        font-size: 1.5rem;
+    }
+}
