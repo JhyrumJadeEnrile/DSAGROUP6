@@ -20,6 +20,7 @@ public class WebsiteDSAApplication {
     private Map<String, VideoInfo> getAllDataStructures() {
         Map<String, VideoInfo> videos = new LinkedHashMap<>();
 
+        // Original 7 videos
         videos.put("stack", new VideoInfo("Stack", "Stack.mp4",
                 "Last In First Out (LIFO) data structure. Elements are added and removed from the top.", "📚"));
         videos.put("queue", new VideoInfo("Queue", "Queue.mp4",
@@ -34,6 +35,12 @@ public class WebsiteDSAApplication {
                 "Two-dimensional array structure for storing data in rows and columns.", "⊞"));
         videos.put("dictionary-and-tuples", new VideoInfo("Dictionary & Tuples", "Dictionary_and_tuples.mp4",
                 "Key-value pairs (Dictionary) and immutable ordered sequences (Tuples).", "📖"));
+        videos.put("array", new VideoInfo("Array", "HOW ARRAY WORKS.mp4",
+                "Fixed-size sequential collection of elements stored in contiguous memory locations.", "🔢"));
+        videos.put("list", new VideoInfo("List", "HOW LIST WORK.mp4",
+                "Dynamic-size sequential collection that can grow or shrink during runtime.", "📝"));
+        videos.put("doubly-circular-linked-list", new VideoInfo("Doubly Circular Linked List", "Doublyt CIrcular Linked List.mp4",
+                "Doubly linked list where last node points to first and first points to last.", "↻"));
 
         return videos;
     }
@@ -68,7 +75,6 @@ public class WebsiteDSAApplication {
         return "index";
     }
 
-    // FIXED: Added public fields and getters
     public static class VideoInfo {
         public String title;
         public String filename;
@@ -82,7 +88,6 @@ public class WebsiteDSAApplication {
             this.icon = icon;
         }
 
-        // Getters for Thymeleaf access
         public String getTitle() {
             return title;
         }
