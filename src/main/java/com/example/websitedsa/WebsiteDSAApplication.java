@@ -45,12 +45,43 @@ public class WebsiteDSAApplication {
         return videos;
     }
 
+    private Map<String, VideoInfo> getAllAlgorithms() {
+        Map<String, VideoInfo> videos = new LinkedHashMap<>();
+
+        videos.put("bubble-sort", new VideoInfo("Bubble Sort", "Bubble Sort.mp4",
+                "Repeatedly swaps adjacent elements if they are in the wrong order until the list is sorted.", "🫧"));
+        videos.put("selection-sort", new VideoInfo("Selection Sort", "SELECTION SORT.mp4",
+                "Finds the minimum element from the unsorted portion and places it at the beginning each pass.", "🎯"));
+        videos.put("insertion-sort", new VideoInfo("Insertion Sort", "Insertion Sort.mp4",
+                "Builds a sorted array one element at a time by inserting each element into its correct position.", "🃏"));
+        videos.put("linear-search", new VideoInfo("Linear Search", "LINEAR SEARCH.mp4",
+                "Sequentially checks each element in a list until the target value is found or the list ends.", "🔍"));
+        videos.put("hash-tables", new VideoInfo("Hash Tables", "Hash Tables.mp4",
+                "Data structure that maps keys to values using a hash function for fast lookups.", "🗂️"));
+        videos.put("trees", new VideoInfo("Trees", "Trees.mp4",
+                "Hierarchical data structure with a root node and subtrees of children, forming a parent-child relationship.", "🌳"));
+        videos.put("graph", new VideoInfo("Graph", "Graph.mp4",
+                "Non-linear data structure consisting of vertices (nodes) connected by edges.", "🕸️"));
+        videos.put("breadth-first-search", new VideoInfo("Breadth First Search", "Breadth First Search.mp4",
+                "Traversal algorithm that explores all neighbors at the current depth before moving to the next level.", "🌊"));
+        videos.put("depth-first-search", new VideoInfo("Depth First Search", "Depth First Search.mp4",
+                "Traversal algorithm that explores as far as possible along each branch before backtracking.", "🏔️"));
+        videos.put("binary-search", new VideoInfo("Binary Search", "BINARY SEARCH.mp4",
+                "Efficient search algorithm that repeatedly divides a sorted array in half to locate a target value.", "🔎"));
+        videos.put("heaps", new VideoInfo("Heaps", "HEaps.mp4",
+                "Tree-based data structure satisfying the heap property, used in priority queues and heap sort.", "⛰️"));
+
+        return videos;
+    }
+
     @GetMapping("/")
     public String index(Model model) {
         Map<String, VideoInfo> allStructures = getAllDataStructures();
+        Map<String, VideoInfo> allAlgorithms = getAllAlgorithms();
         VideoInfo defaultVideo = allStructures.get("stack");
 
         model.addAttribute("structures", allStructures);
+        model.addAttribute("algorithms", allAlgorithms);
         model.addAttribute("currentDs", "stack");
         model.addAttribute("dsName", defaultVideo.title);
         model.addAttribute("videoFile", defaultVideo.filename);
@@ -63,9 +94,14 @@ public class WebsiteDSAApplication {
     @GetMapping("/ds/{name}")
     public String viewStructure(@PathVariable String name, Model model) {
         Map<String, VideoInfo> allStructures = getAllDataStructures();
-        VideoInfo currentVideo = allStructures.getOrDefault(name, allStructures.get("stack"));
+        Map<String, VideoInfo> allAlgorithms = getAllAlgorithms();
+
+        VideoInfo currentVideo = allStructures.containsKey(name)
+                ? allStructures.get(name)
+                : allAlgorithms.getOrDefault(name, allStructures.get("stack"));
 
         model.addAttribute("structures", allStructures);
+        model.addAttribute("algorithms", allAlgorithms);
         model.addAttribute("currentDs", name);
         model.addAttribute("dsName", currentVideo.title);
         model.addAttribute("videoFile", currentVideo.filename);

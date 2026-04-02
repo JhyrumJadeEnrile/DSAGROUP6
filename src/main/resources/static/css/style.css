@@ -390,6 +390,53 @@ kbd {
     font-size: 0.95rem;
 }
 
+.nav-section-label {
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    flex-shrink: 0;
+    opacity: 0.8;
+    padding: 0 4px;
+}
+
+.nav-divider {
+    color: var(--border);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    padding: 0 4px;
+}
+
+.algo-link {
+    border-color: transparent;
+}
+
+.algo-link.active {
+    background: #a78bfa;
+    border-color: #a78bfa;
+    color: var(--bg);
+    box-shadow: 0 4px 12px rgba(167, 139, 250, 0.4);
+}
+
+.algo-link:hover {
+    background: rgba(167, 139, 250, 0.15);
+    border-color: #a78bfa;
+    color: var(--text);
+}
+
+.mobile-nav-section-label {
+    padding: 10px 20px;
+    background: rgba(56, 189, 248, 0.08);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid var(--border);
+}
+
 /* Footer */
 .footer {
     text-align: center;

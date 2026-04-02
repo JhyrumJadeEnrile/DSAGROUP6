@@ -14,12 +14,22 @@
                 <h2>🎓 DSA Visualizer</h2>
             </div>
             <div class="nav-links">
+                <span class="nav-section-label">Data Structures</span>
                 <a th:each="entry : ${structures}" 
                    th:href="@{'/ds/' + ${entry.key}}" 
                    th:classappend="${entry.key == currentDs} ? 'active' : ''"
                    class="nav-link">
                     <span class="nav-icon" th:text="${entry.value.icon}">📚</span>
                     <span class="nav-text" th:text="${entry.value.title}">Stack</span>
+                </a>
+                <span class="nav-divider">|</span>
+                <span class="nav-section-label">Algorithms</span>
+                <a th:each="entry : ${algorithms}" 
+                   th:href="@{'/ds/' + ${entry.key}}" 
+                   th:classappend="${entry.key == currentDs} ? 'active' : ''"
+                   class="nav-link algo-link">
+                    <span class="nav-icon" th:text="${entry.value.icon}">🔍</span>
+                    <span class="nav-text" th:text="${entry.value.title}">Search</span>
                 </a>
             </div>
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
@@ -32,6 +42,7 @@
 
     <!-- Mobile Navigation Menu -->
     <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-section-label">📦 Data Structures</div>
         <a th:each="entry : ${structures}" 
            th:href="@{'/ds/' + ${entry.key}}" 
            th:classappend="${entry.key == currentDs} ? 'active' : ''"
@@ -39,6 +50,15 @@
            onclick="toggleMobileMenu()">
             <span th:text="${entry.value.icon}">📚</span>
             <span th:text="${entry.value.title}">Stack</span>
+        </a>
+        <div class="mobile-nav-section-label">⚙️ Algorithms</div>
+        <a th:each="entry : ${algorithms}" 
+           th:href="@{'/ds/' + ${entry.key}}" 
+           th:classappend="${entry.key == currentDs} ? 'active' : ''"
+           class="mobile-nav-link"
+           onclick="toggleMobileMenu()">
+            <span th:text="${entry.value.icon}">🔍</span>
+            <span th:text="${entry.value.title}">Search</span>
         </a>
     </div>
 
@@ -95,7 +115,8 @@
     <!-- Footer -->
     <footer class="footer">
         <p>© 2026 DSA GROUP 6 |
-           <span th:text="${#maps.size(structures)}">7</span> Data Structures Available
+           <span th:text="${#maps.size(structures)}">10</span> Data Structures &amp;
+           <span th:text="${#maps.size(algorithms)}">9</span> Algorithms Available
         </p>
     </footer>
 
